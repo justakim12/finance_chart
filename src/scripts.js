@@ -14,11 +14,6 @@ function createTickerTape(containerId) {
             {proName: 'NASDAQ:AMZN', description: ''},
             {proName: 'NASDAQ:GOOGL', description: ''},
             {proName: 'NASDAQ:META', description: ''},
-            {proName: 'NYSE:BRK.B', description: ''},
-            {proName: 'NYSE:LLY', description: ''},
-            {proName: 'NYSE:UNH', description: ''},
-            {proName: 'NYSE:V', description: ''},
-            {proName: 'NYSE:WMT', description: ''},
         ],
         showSymbolLogo: true,
         colorTheme: 'light',
@@ -61,7 +56,6 @@ const mainContent = document.getElementById('main-content');
 const sections = [
     {id: 'symbol-info', title: 'Symbol Info', height: 'auto', span: 2},
     {id: 'advanced-chart', title: 'Advanced Chart', height: '500px', span: 2},
-    {id: 'company-profile', title: 'Company Profile', height: '390px', span: 2},
     {id: 'fundamental-data', title: 'Fundamental Data', height: '490px', span: 2},
     {id: 'technical-analysis', title: 'Technical Analysis', height: '425px', span: 1},
     {id: 'top-stories', title: 'Top Stories', height: '425px', span: 1},
@@ -93,15 +87,6 @@ createWidget('advanced-chart', {
     allow_symbol_change: true,
 }, 'advanced-chart');
 
-createWidget('symbol-profile', {
-    symbol,
-    width: '100%',
-    height: '100%',
-    colorTheme: 'light',
-    isTransparent: true,
-    locale: 'en',
-}, 'company-profile');
-
 createWidget('financials', {
     symbol,
     width: '100%',
@@ -112,7 +97,7 @@ createWidget('financials', {
 }, 'fundamental-data');
 
 createWidget('technical-analysis', {
-    interval: '15m',
+    interval: '1D',
     symbol,
     width: '100%',
     height: '100%',
