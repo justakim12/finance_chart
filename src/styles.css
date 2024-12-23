@@ -72,10 +72,11 @@ main {
     display: grid;
     width: 100%;
     padding: 0 calc(var(--gap-size) * 0.5);
-    max-width: 960px;
-    grid-template-columns: 1fr 1fr;
+    max-width: 1600px; /* Wider container for more space */
+    grid-template-columns: repeat(3, 1fr); /* Explicit 4-column layout */
     grid-gap: var(--gap-size);
 }
+
 
 section {
     background: white;
@@ -107,19 +108,35 @@ section {
     height: 490px;
 }
 
-#technical-analysis,
+#technical-analysis {
+    grid-column: span 2; /* Span 2 columns */
+    height: 425px;
+}
+
 #top-stories {
-    grid-column: span 1;
+    grid-column: span 2; /* Span 2 columns */
     height: 425px;
 }
 
 @media (max-width: 800px) {
-    main > section {
-        grid-column: span 2;
+    main {
+        grid-template-columns: repeat(2, 1fr); /* Switch to 2-column layout */
+    }
+
+    section {
+        grid-column: span 2; /* Span entire row */
     }
 }
 
 #ticker-tape {
+    width: 100%;
+    margin-bottom: var(--gap-size);
+}
+
+.symbol-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); /* Set a larger min-width for each section */
+    gap: var(--gap-size);
     width: 100%;
     margin-bottom: var(--gap-size);
 }
